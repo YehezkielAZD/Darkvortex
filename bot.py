@@ -1,45 +1,5 @@
 # -*- coding: utf-8 -*-
 #BY MR.PATRIX
-import os
-import sys
-import time
-
-def clear_screen():
-    os.system("clear")
-
-clear_screen()  
-
-flag_file = ".instalasi_selesai"
-
-print('[-] instalasi packet...')
-# Cek apakah file flag sudah ada di sistem
-if not os.path.exists(flag_file):
-    # List paket yang ingin diinstal
-    packages = [
-        "python2",
-        "pip2",
-        "requests",
-        "git",
-        "colorama",
-        "art",
-        "python",
-        "python3"
-    ]
-
-    # Menginstal setiap paket dengan mengarahkan output ke /dev/null
-    for package in packages:
-        os.system(f"pkg install -y {package} > /dev/null 2>&1")
-        os.system(f"pip install {package} > /dev/null 2>&1")
-
-    # Membuat file flag yang menandakan instalasi telah selesai
-    with open(flag_file, "w") as flag:
-        flag.write("Instalasi selesai.")
-        print("[-] Instalasi paket selesai.")
-else:
-    print("")
-
-def clear_screen():
-    os.system("clear")
     
 from art import *
 from colorama import Fore, Style
